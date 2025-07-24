@@ -1,6 +1,6 @@
 enum RoutesPath {
   HOME = '/',
-  TABLE = 'TABLE' ,
+  TABLE = 'TABLE',
 }
 
-export {RoutesPath};
+export { RoutesPath };

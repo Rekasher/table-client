@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { RoutesPath } from './routes-enum/routes-enum.ts';
+import { TablePage } from '../pages/TablePage/TablePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -8,6 +9,7 @@ const router = createBrowserRouter([
   },
   {
     path: RoutesPath.TABLE,
+    element: <TablePage />,
   },
 ]);
 
