@@ -38,12 +38,6 @@ export default [
       'react-hooks/exhaustive-deps': 'warn',
 
       'prettier/prettier': 'error',
-
-      'quotes': ['error', 'single', { avoidEscape: true }],
-
-      'import/named': 'off',
-      'import/no-unresolved': 'off',
-      'import/export': 'off',
     },
     settings: {
       react: {
