@@ -2,7 +2,7 @@ import { Modal, Input, DatePicker, InputNumber, Button, Form } from 'antd';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import dayjs from 'dayjs';
-import type { FC } from 'react';
+import { type FC, useEffect } from 'react';
 import { type CreateTableDto, CreateTableSchema } from '../../../../api/table/utils/table.dto.ts';
 
 type Props = {
@@ -27,6 +27,14 @@ const TableModal: FC<Props> = ({ isOpen, setIsOpen, initialData, onSubmit }) => 
       ...initialData,
     },
   });
+
+  useEffect(() => {
+    reset({
+      name: initialData?.name ?? '',
+      code: initialData?.code ?? 0,
+      date: initialData?.date ?? new Date(),
+    });
+  }, [initialData, reset]);
 
   const onFinish = async (data: CreateTableDto) => {
     await onSubmit(data);
@@ -84,9 +92,15 @@ const TableModal: FC<Props> = ({ isOpen, setIsOpen, initialData, onSubmit }) => 
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" loading={isSubmitting} block>
-            {initialData ? 'Save' : 'Create'}
-          </Button>
+          {initialData ? (
+            <Button type="primary" htmlType="submit" loading={isSubmitting} block>
+              Save
+            </Button>
+          ) : (
+            <Button type="primary" htmlType="submit" loading={isSubmitting} block>
+              Create
+            </Button>
+          )}
         </Form.Item>
       </Form>
     </Modal>

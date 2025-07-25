@@ -1,7 +1,7 @@
 import { api } from '../api.ts';
 import { TableEndPoints } from './utils/table.constants.ts';
 import type { CreateTableDto, UpdateTableDto } from './utils/table.dto.ts';
-import type { GetTableType } from './utils/table.types.ts';
+import type { GetTableType, SortFieldType, SortOrderType } from './utils/table.types.ts';
 
 const createTableRow = async (data: CreateTableDto) => {
   try {
@@ -13,9 +13,16 @@ const createTableRow = async (data: CreateTableDto) => {
   }
 };
 
-const getTableRows = async (page: number) => {
+const getTableRows = async (
+  page: number,
+  search = '',
+  sortField: SortFieldType = 'id',
+  sortOrder: SortOrderType = 'ascend',
+) => {
   try {
-    const link = `${TableEndPoints.GET_ROWS}?page=${page}`;
+    const order = sortOrder === 'ascend' ? 'ASC' : 'DESC';
+
+    const link = `${TableEndPoints.GET_ROWS}?page=${page}&search=${search}&sortField=${sortField}&sortOrder=${order}`;
     const res = await api.get<[GetTableType[], number]>(link);
     return res.data;
   } catch (error) {

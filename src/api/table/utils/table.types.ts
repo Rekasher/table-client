@@ -4,3 +4,6 @@ export type GetTableType = {
   code: number;
   date: Date;
 };
+
+export type SortOrderType = 'ascend' | 'descend';
+export type SortFieldType = keyof GetTableType;

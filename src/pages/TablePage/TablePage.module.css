@@ -1,0 +1,45 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 16px;
+    background-color: #f0f2f5;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.tableContainer {
+    flex: 1;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.innerTableScroll {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.centered {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
