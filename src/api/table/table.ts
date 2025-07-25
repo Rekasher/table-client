@@ -16,7 +16,7 @@ const createTableRow = async (data: CreateTableDto) => {
 const getTableRows = async (page: number) => {
   try {
     const link = `${TableEndPoints.GET_ROWS}?page=${page}`;
-    const res = await api.get<GetTableType>(link);
+    const res = await api.get<[GetTableType[], number]>(link);
     return res.data;
   } catch (error) {
     throw error;

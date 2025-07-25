@@ -1,4 +1,5 @@
 import { SERVER_HOST } from '../utils/env-constants.ts';
+import axios from 'axios';
 
 const api = axios.create({
   baseURL: SERVER_HOST,
