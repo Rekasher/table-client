@@ -10,6 +10,10 @@ export const columns = [
     dataIndex: 'date',
     key: 'date',
     sorter: true,
+    render: (date: string | Date) => {
+      const d = new Date(date);
+      return isNaN(d.getTime()) ? '' : d.toLocaleDateString();
+    },
   },
   {
     title: 'Num Value',
